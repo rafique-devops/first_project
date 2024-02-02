@@ -18,9 +18,9 @@ export class UsersController {
     }
 
     @Post()
-    createUser(@Body() user: {})
+    createUser(@Body() user: { name:string,email:string,role:'Intern' | 'Admin' | 'SuperAdmin'})
     {
-        return user;
+        return this.userService.createUser(user);
     }
 
     @Post(':id')
@@ -38,7 +38,7 @@ export class UsersController {
     @Delete(':id')
     deleteUser(@Param('id') id: string)
     {
-        return { id }
+        return {id}
     }
 
 
