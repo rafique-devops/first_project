@@ -8,13 +8,13 @@ export class UsersController {
     @Get()
     findAll(@Query('role') role?: 'Intern' | 'Admin' | 'SuperAdmin')
     {
-        return [role];
+        return this.userService.findAll(role)
     }
 
     @Get(':id')
     findUserById(@Param('id') id: string)
     {
-        return { id }
+        return this.userService.findUserById(+id)
     }
 
     @Post()
